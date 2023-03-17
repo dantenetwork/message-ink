@@ -413,7 +413,6 @@ mod payload {
                     callback: ink::prelude::vec![],
                     commitment: ink::prelude::vec![],
                     answer: ink::prelude::vec![],
-                    callback: None,
                 },
             );
 
