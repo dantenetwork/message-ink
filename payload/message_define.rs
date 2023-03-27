@@ -347,7 +347,7 @@ impl IVVMessageRecved {
         ink::env::ecdsa_recover(&self.signature, &msg_hash, &mut compressed_pubkey).unwrap();
 
         let mut addr_hash = <T as ink::env::hash::HashOutput>::Type::default();
-        ink::env::hash_bytes::<T>(&compressed_pubkey, &mut addr_hash);
+        ink::env::hash_bytes::<ink::env::hash::Blake2x256>(&compressed_pubkey, &mut addr_hash);
 
         ink::primitives::AccountId::from(addr_hash) == acct
     }
